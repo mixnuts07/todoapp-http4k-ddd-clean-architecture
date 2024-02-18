@@ -5,6 +5,7 @@
     <groupId>com.todo</groupId>
     <artifactId>Todo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
     <name>Todo</name>
     <description>Project Todo</description>
 
@@ -14,6 +15,11 @@
         <junitVersion>5.10.2</junitVersion>
         <http4kVersion>5.13.7.0</http4kVersion>
     </properties>
+
+    <modules>
+        <module>todo-controllers</module>
+        <module>todo-usecase</module>
+    </modules>
 
     <dependencies>
         <dependency>
