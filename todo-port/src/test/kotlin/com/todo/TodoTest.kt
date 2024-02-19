@@ -13,4 +13,5 @@ class TodoTest {
     fun `Ping test`() {
         assertEquals(Response(OK).body("pong"), app(Request(GET, "/ping")))
     }
+
 }

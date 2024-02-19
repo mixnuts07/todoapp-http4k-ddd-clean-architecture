@@ -24,18 +24,18 @@
     <junitVersion>5.10.2</junitVersion>
             
     <http4kVersion>5.13.7.0</http4kVersion>
+    <mockkVersion>1.13.9</mockkVersion>
         
   </properties>
       
   <modules>
             
     <module>todo-controllers</module>
-            
     <module>todo-usecase</module>
-          
     <module>todo-domains</module>
-
-    <module>todo-domains</module>
+    <module>todo-gateway</module>
+    <module>todo-port</module>
+    <module>todo-driver</module>
 
   </modules>
       
@@ -74,17 +74,17 @@
     </dependency>
             
     <dependency>
-                      
       <groupId>org.http4k</groupId>
-                      
       <artifactId>http4k-testing-hamkrest</artifactId>
-                      
       <version>${http4kVersion}</version>
-                      
       <scope>test</scope>
-              
     </dependency>
-            
+    <dependency>
+      <groupId>io.mockk</groupId>
+      <artifactId>mockk-jvm</artifactId>
+      <version>${mockkVersion}</version>
+      <scope>test</scope>
+    </dependency>
     <dependency>
                       
       <groupId>org.junit.jupiter</groupId>
