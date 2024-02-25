@@ -7,11 +7,10 @@ import org.http4k.core.Status.Companion.OK
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
-class TodoTest {
+class TodoControllersTest {
 
     @Test
     fun `Ping test`() {
         assertEquals(Response(OK).body("pong"), app(Request(GET, "/ping")))
     }
-
 }
