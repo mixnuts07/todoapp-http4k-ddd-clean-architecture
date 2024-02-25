@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
 class TodoControllersTest {
-
     @Test
     fun `Ping test`() {
         assertEquals(Response(OK).body("pong"), app(Request(GET, "/ping")))
