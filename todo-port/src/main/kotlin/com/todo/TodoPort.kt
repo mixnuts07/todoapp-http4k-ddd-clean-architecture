@@ -2,5 +2,5 @@ package com.todo
 
 
 interface TodoPort {
-    fun getTodoById(id: String): Todo
+    fun getTodoById(id: String?): Todo
 }
