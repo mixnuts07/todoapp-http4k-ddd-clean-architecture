@@ -1,21 +1,28 @@
 package com.todo
 
 import org.ktorm.database.Database
-import org.ktorm.dsl.from
-import org.ktorm.dsl.select
-import org.ktorm.dsl.where
-import org.ktorm.entity.Entity
+import org.ktorm.dsl.*
 import org.ktorm.schema.Table
 import org.ktorm.schema.int
 import org.ktorm.schema.varchar
 
 class TodoDriver {
 
-    fun findTodoById(id: String?): Todo {
-        for(row in database.from(Todos).select()) {
-            println(row[Todos.title])
-        }
-        TODO()
+    fun findTodoById(id: String): Todo {
+        val results = database
+            .from(Todos)
+            .select(Todos.title, Todos.description)
+            .where{
+                (Todos.id eq id.toInt())
+            }
+            .map {row ->
+                Todo(
+                    Id(row[Todos.id]),
+                    Title(row[Todos.title]),
+                    Description(row[Todos.description])
+                )
+            }
+        return results[0]
     }
 }
 
@@ -28,9 +35,9 @@ object Todos: Table<Nothing>("todos") {
 }
 
 
-interface Todo: Entity<Todo> {
-    companion object: Entity.Factory<Todo>()
-    val id: Int
-    var title: String
-    var description: String
-}
+//interface Todo: Entity<Todo> {
+//    companion object: Entity.Factory<Todo>()
+//    val id: Int
+//    var title: String
+//    var description: String
+//}

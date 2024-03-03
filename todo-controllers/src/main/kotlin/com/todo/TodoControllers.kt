@@ -15,7 +15,7 @@ class TodoControllers {
         return  "/todo" bind GET to {
                 val id = Query.required("id").extract(it)
                 val todos = todoUseCase.getTodo(it.query(id))
-                Response(OK).body(todos.title.value)
+                Response(OK).body(todos.title.value.toString())
                 }
     }
 }
