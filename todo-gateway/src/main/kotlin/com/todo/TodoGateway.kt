@@ -4,8 +4,8 @@ import javax.inject.Inject
 
 open class TodoGateway: TodoPort {
     @Inject
-    lateinit var todoDriver: TodoDriver
+    private lateinit var todoDriver: TodoDriver
     override fun getTodoById(id: String?): Todo {
-        TODO()
+        return todoDriver.findTodoById(id)
     }
 }
