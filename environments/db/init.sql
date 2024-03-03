@@ -1,0 +1,10 @@
+CREATE DATABASE IF NOT EXISTS public;
+use public;
+
+CREATE TABLE IF NOT EXISTS todos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(256),
+    description VARCHAR(256)
+);
+
+INSERT INTO todos (title, description) VALUES ("TEST TODO", "THIS IS A SAMPLE TEST DATA");
