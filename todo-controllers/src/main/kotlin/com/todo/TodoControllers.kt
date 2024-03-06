@@ -12,8 +12,8 @@ class TodoControllers {
     @Inject
     lateinit var todoUseCase: TodoUseCase
     fun returnTodoObject(): RoutingHttpHandler {
-        return  "/todo" bind GET to {
-                val id = Query.required("id").extract(it)
+        return  "/todo" bind GET to { it ->
+            val id = Query.required("id").extract(it)
                 val todos = it.query(id)?.let { todoUseCase.getTodo(it) }
                 Response(OK).body(todos?.title?.value.toString())
                 }
