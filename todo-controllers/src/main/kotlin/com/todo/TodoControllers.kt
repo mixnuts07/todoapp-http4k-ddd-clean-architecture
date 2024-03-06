@@ -14,8 +14,8 @@ class TodoControllers {
     fun returnTodoObject(): RoutingHttpHandler {
         return  "/todo" bind GET to {
                 val id = Query.required("id").extract(it)
-                val todos = todoUseCase.getTodo(it.query(id))
-                Response(OK).body(todos.title.value.toString())
+                val todos = it.query(id)?.let { todoUseCase.getTodo(it) }
+                Response(OK).body(todos?.title?.value.toString())
                 }
     }
 }

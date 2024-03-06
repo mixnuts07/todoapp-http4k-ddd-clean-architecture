@@ -7,7 +7,7 @@ class TodoUseCase  {
     @Inject
     lateinit var todoPort: TodoPort
 
-    fun getTodo(id: String?): Todo {
+    fun getTodo(id: String): Todo {
      return todoPort.getTodoById(id)
     }
 }
